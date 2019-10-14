@@ -10,14 +10,15 @@ import UIKit
 
 class HypeListViewController: UIViewController {
     
+    // MARK: - Properties
+    var refreshControl = UIRefreshControl()
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Actions
@@ -26,9 +27,24 @@ class HypeListViewController: UIViewController {
     }
     
     // MARK: - Helper Functions
+    private func setupViews() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to see new Hypes!")
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc private func loadData() {
+        HypeController.shared.fetchAllHypes { (success) in
+            if success {
+                self.updateViews()
+            }
+        }
+    }
+    
     private func updateViews() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
