@@ -19,10 +19,12 @@ struct HypeStrings {
 class Hype {
     var body: String
     var timestamp: Date
+    let ckRecordID: CKRecord.ID
     
-    init(body: String, timestamp: Date = Date()) {
+    init(body: String, timestamp: Date = Date(), ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.body = body
         self.timestamp = timestamp
+        self.ckRecordID = ckRecordID
     }
 }
 
@@ -39,7 +41,13 @@ extension Hype {
         guard let body = ckRecord[HypeStrings.bodyKey] as? String,
             let timestamp = ckRecord[HypeStrings.timestampKey] as? Date
             else { return nil }
-        self.init(body: body, timestamp: timestamp)
+        self.init(body: body, timestamp: timestamp, ckRecordID: ckRecord.recordID)
+    }
+}
+
+extension Hype: Equatable {
+    static func == (lhs: Hype, rhs: Hype) -> Bool {
+        return lhs.ckRecordID == rhs.ckRecordID
     }
 }
 
@@ -53,7 +61,7 @@ extension CKRecord {
      */
     convenience init(hype: Hype) {
         // Initalizes a CKRecord
-        self.init(recordType: HypeStrings.recordTypeKey)
+        self.init(recordType: HypeStrings.recordTypeKey, recordID: hype.ckRecordID)
         self.setValuesForKeys([
             HypeStrings.bodyKey : hype.body,
             HypeStrings.timestampKey : hype.timestamp
