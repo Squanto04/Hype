@@ -15,7 +15,16 @@
 		353F329F2354D70F00DDC82A /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F329E2354D70F00DDC82A /* Hype.swift */; };
 		353F32A22354DDCC00DDC82A /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F32A12354DDCC00DDC82A /* HypeController.swift */; };
 		353F32A52354EAD800DDC82A /* HypeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F32A42354EAD800DDC82A /* HypeListViewController.swift */; };
-		353F32A82354EDB100DDC82A /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F32A72354EDB100DDC82A /* DataExtension.swift */; };
+		353F32A82354EDB100DDC82A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F32A72354EDB100DDC82A /* DateExtension.swift */; };
+		356978882357759D004DD262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356978872357759D004DD262 /* User.swift */; };
+		3569788A23577B78004DD262 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569788923577B78004DD262 /* UserController.swift */; };
+		3569788E2357898D004DD262 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569788D2357898D004DD262 /* SignUpViewController.swift */; };
+		3569789123578B87004DD262 /* HypeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3569788F23578B87004DD262 /* HypeList.storyboard */; };
+		35EA97BA2358CD8400AD1662 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA97B92358CD8400AD1662 /* PhotoPickerViewController.swift */; };
+		35EA97BC2358D42C00AD1662 /* PhotoAlertSheetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA97BB2358D42C00AD1662 /* PhotoAlertSheetExtension.swift */; };
+		35EA97BF2358DA0A00AD1662 /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EA97BD2358DA0A00AD1662 /* PhotoPicker.storyboard */; };
+		35EA97C12358DB6B00AD1662 /* HypePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA97C02358DB6B00AD1662 /* HypePhotoViewController.swift */; };
+		35EA97C32358F67D00AD1662 /* HypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA97C22358F67D00AD1662 /* HypeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +38,16 @@
 		353F329E2354D70F00DDC82A /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
 		353F32A12354DDCC00DDC82A /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
 		353F32A42354EAD800DDC82A /* HypeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeListViewController.swift; sourceTree = "<group>"; };
-		353F32A72354EDB100DDC82A /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		353F32A72354EDB100DDC82A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		356978872357759D004DD262 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3569788923577B78004DD262 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		3569788D2357898D004DD262 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3569789023578B87004DD262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Views/Base.lproj/HypeList.storyboard; sourceTree = "<group>"; };
+		35EA97B92358CD8400AD1662 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		35EA97BB2358D42C00AD1662 /* PhotoAlertSheetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlertSheetExtension.swift; sourceTree = "<group>"; };
+		35EA97BE2358DA0A00AD1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Views/Base.lproj/PhotoPicker.storyboard; sourceTree = "<group>"; };
+		35EA97C02358DB6B00AD1662 /* HypePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypePhotoViewController.swift; sourceTree = "<group>"; };
+		35EA97C22358F67D00AD1662 /* HypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,19 +83,20 @@
 				353F32A02354D71300DDC82A /* Models */,
 				353F32A32354DDD100DDC82A /* Model Controllers */,
 				353F32A62354EADD00DDC82A /* View Controllers */,
-				353F329C2354D64F00DDC82A /* Views */,
+				35EA97C42358F6A300AD1662 /* Storyboards */,
+				353F329C2354D64F00DDC82A /* Custom Cells */,
 				353F32A92354EDB400DDC82A /* Helpers */,
 				353F329D2354D65C00DDC82A /* Resources */,
 			);
 			path = Hype;
 			sourceTree = "<group>";
 		};
-		353F329C2354D64F00DDC82A /* Views */ = {
+		353F329C2354D64F00DDC82A /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				353F328E2354D50D00DDC82A /* Main.storyboard */,
+				35EA97C22358F67D00AD1662 /* HypeTableViewCell.swift */,
 			);
-			path = Views;
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		353F329D2354D65C00DDC82A /* Resources */ = {
@@ -96,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				353F329E2354D70F00DDC82A /* Hype.swift */,
+				356978872357759D004DD262 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				353F32A12354DDCC00DDC82A /* HypeController.swift */,
+				3569788923577B78004DD262 /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -112,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				353F32A42354EAD800DDC82A /* HypeListViewController.swift */,
+				3569788D2357898D004DD262 /* SignUpViewController.swift */,
+				35EA97B92358CD8400AD1662 /* PhotoPickerViewController.swift */,
+				35EA97C02358DB6B00AD1662 /* HypePhotoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -119,9 +143,20 @@
 		353F32A92354EDB400DDC82A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				353F32A72354EDB100DDC82A /* DataExtension.swift */,
+				353F32A72354EDB100DDC82A /* DateExtension.swift */,
+				35EA97BB2358D42C00AD1662 /* PhotoAlertSheetExtension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		35EA97C42358F6A300AD1662 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				353F328E2354D50D00DDC82A /* Main.storyboard */,
+				3569788F23578B87004DD262 /* HypeList.storyboard */,
+				35EA97BD2358DA0A00AD1662 /* PhotoPicker.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +217,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3569789123578B87004DD262 /* HypeList.storyboard in Resources */,
+				35EA97BF2358DA0A00AD1662 /* PhotoPicker.storyboard in Resources */,
 				353F32952354D50E00DDC82A /* LaunchScreen.storyboard in Resources */,
 				353F32922354D50E00DDC82A /* Assets.xcassets in Resources */,
 				353F32902354D50D00DDC82A /* Main.storyboard in Resources */,
@@ -196,11 +233,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				353F328D2354D50D00DDC82A /* ViewController.swift in Sources */,
-				353F32A82354EDB100DDC82A /* DataExtension.swift in Sources */,
+				35EA97C32358F67D00AD1662 /* HypeTableViewCell.swift in Sources */,
+				353F32A82354EDB100DDC82A /* DateExtension.swift in Sources */,
+				3569788A23577B78004DD262 /* UserController.swift in Sources */,
 				353F32A22354DDCC00DDC82A /* HypeController.swift in Sources */,
 				353F32A52354EAD800DDC82A /* HypeListViewController.swift in Sources */,
 				353F328B2354D50D00DDC82A /* AppDelegate.swift in Sources */,
+				3569788E2357898D004DD262 /* SignUpViewController.swift in Sources */,
+				35EA97BA2358CD8400AD1662 /* PhotoPickerViewController.swift in Sources */,
+				35EA97C12358DB6B00AD1662 /* HypePhotoViewController.swift in Sources */,
+				35EA97BC2358D42C00AD1662 /* PhotoAlertSheetExtension.swift in Sources */,
 				353F329F2354D70F00DDC82A /* Hype.swift in Sources */,
+				356978882357759D004DD262 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +265,22 @@
 				353F32942354D50E00DDC82A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3569788F23578B87004DD262 /* HypeList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3569789023578B87004DD262 /* Base */,
+			);
+			name = HypeList.storyboard;
+			sourceTree = "<group>";
+		};
+		35EA97BD2358DA0A00AD1662 /* PhotoPicker.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35EA97BE2358DA0A00AD1662 /* Base */,
+			);
+			name = PhotoPicker.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -12,6 +12,7 @@ class HypeListViewController: UIViewController {
     
     // MARK: - Properties
     var refreshControl = UIRefreshControl()
+    var image: UIImage?
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -49,7 +50,7 @@ class HypeListViewController: UIViewController {
     }
     
     private func saveHype(with text: String) {
-        HypeController.shared.saveHype(with: text, completion: { (success) in
+        HypeController.shared.saveHype(with: text, photo: nil, completion: { (success) in
             if success {
                 self.updateViews()
             }
@@ -64,6 +65,7 @@ class HypeListViewController: UIViewController {
         }
     }
     
+    // MARK: - Alert Controller
     private func presentHypeAlert(for hype: Hype?) {
         let alert = UIAlertController(title: "Get Hype!", message: "What is hype may never die", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -105,12 +107,16 @@ extension HypeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "hypeCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "hypeCell", for: indexPath) as? HypeTableViewCell else { return UITableViewCell() }
         let hype = HypeController.shared.hypes[indexPath.row]
-        cell.textLabel?.text = hype.body
-        cell.detailTextLabel?.text = hype.timestamp.formatDate()
-        
+        cell.hype = hype
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let hype = HypeController.shared.hypes[indexPath.row]
+        guard hype.userReference.recordID == UserController.shared.currentUser?.ckRecordID else { return false}
+        return true
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Squanto Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class HypeController {
@@ -25,13 +25,16 @@ class HypeController {
      Saves a Hype object to the PublicDatabase
      
      - Parameters:
-         - text: String value for the Hypes's body.
-         - completion: Escaping completion block for the method.
-         - success: Boolean value returned in the completion block indicating success or failure on saving the CKRecord to CloudKit and reinitialzing as the Object.
+     - text: String value for the Hypes's body.
+     - completion: Escaping completion block for the method.
+     - success: Boolean value returned in the completion block indicating success or failure on saving the CKRecord to CloudKit and reinitialzing as the Object.
      */
-    func saveHype(with text: String, completion: @escaping (_ success: Bool) -> Void) {
+    func saveHype(with text: String, photo:UIImage?, completion: @escaping (_ success: Bool) -> Void) {
         // Declares newHype, assignes it to an initialized Hype object, taking the text parameter and passing it in for the body.
-        let newHype = Hype(body: text)
+        guard let currentUser = UserController.shared.currentUser
+            else { completion(false) ; return }
+        let reference = CKRecord.Reference(recordID: currentUser.ckRecordID, action: .deleteSelf)
+        let newHype = Hype(body: text, userReference: reference, hypePhoto: photo)
         // Initializes a new CKRecord with a Hype using our convenience init on our CKRecord extension.
         let hypeRecord = CKRecord(hype: newHype)
         // Access the save method on our database to save the hypeRecord, completes with an optional record and error.
@@ -72,8 +75,7 @@ class HypeController {
             }
             
             // Check to make sure we retrived records, if not complete false and return
-            guard let records = foundRecords else {
-                completion(false) ; return }
+            guard let records = foundRecords else {completion(false) ; return }
             
             // Creating an array of hypes from the records array, compactMaping through it to return the non-nil values.
             let hypes = records.compactMap( { Hype(ckRecord: $0) } )
@@ -87,6 +89,8 @@ class HypeController {
     
     // Update
     func updateHype(hype: Hype, completion: @escaping (_ success: Bool) -> Void) {
+        
+        guard hype.userReference.recordID == UserController.shared.currentUser?.ckRecordID else { completion(false) ; return }
         // Step 3 - Defining the recordToUpdate and and passing it into our operation
         let recordToUpdate = CKRecord(hype: hype)
         // Step 2 - Defining the operation, and passing in the array of records to save.

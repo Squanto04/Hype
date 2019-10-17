@@ -1,5 +1,5 @@
 //
-//  DataExtension.swift
+//  DateExtension.swift
 //  Hype
 //
 //  Created by Jordan Lamb on 10/14/19.
@@ -9,7 +9,6 @@
 import Foundation
 
 extension Date {
-    
     
     func formatDate() -> String {
         let formatter = DateFormatter()
